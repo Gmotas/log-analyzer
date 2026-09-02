@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="360" viewBox="0 0 900 360" font-family="Consolas, Menlo, monospace" font-size="13">
+  <rect width="900" height="360" rx="8" fill="#1e1e2e"/>
+  <rect width="900" height="36" rx="8" fill="#313244"/>
+  <circle cx="24" cy="18" r="6" fill="#f38ba8"/>
+  <circle cx="44" cy="18" r="6" fill="#f9e2af"/>
+  <circle cx="64" cy="18" r="6" fill="#a6e3a1"/>
+  <text x="90" y="23" fill="#cdd6f4" font-size="12">log_analyzer — JSON output</text>
+
+  <text x="24" y="68" fill="#89b4fa">$ python log_analyzer.py examples/sample.log --json --no-color</text>
+  <text x="24" y="92" fill="#a6adc8">{</text>
+  <text x="24" y="110" fill="#a6adc8">  "analyzed_at": "2024-01-01T08:00:00",</text>
+  <text x="24" y="128" fill="#a6adc8">  "total_findings": 6,</text>
+  <text x="24" y="146" fill="#a6adc8">  "by_severity": { "5": 1, "3": 3, "2": 2 },</text>
+  <text x="24" y="164" fill="#a6adc8">  "by_type": {</text>
+  <text x="24" y="182" fill="#a6adc8">    "injection": 1, "brute-force": 1, "port-scan": 1,</text>
+  <text x="24" y="200" fill="#a6adc8">    "suspicious-ua": 1, "blacklist": 1, "request-burst": 1</text>
+  <text x="24" y="218" fill="#a6adc8">  },</text>
+  <text x="24" y="236" fill="#a6adc8">  "top_sources": { "203.0.113.66": 3, "198.51.100.23": 1 },</text>
+  <text x="24" y="254" fill="#a6adc8">  "findings": [</text>
+  <text x="24" y="272" fill="#f9e2af">    { "type": "injection", "severity": 5, "level": "critical", ... },</text>
+  <text x="24" y="290" fill="#f9e2af">    { "type": "brute-force", "severity": 3, "level": "high", ... }</text>
+  <text x="24" y="308" fill="#a6adc8">  ]</text>
+  <text x="24" y="326" fill="#a6adc8">}</text>
+</svg>

@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "log-analyzer"
+version = "1.0.0"
+description = "Parse server logs and detect suspicious activity (SQLi, brute force, port scans, known scanners)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Gabriel Mota Silva" }]
+keywords = ["security", "log-analysis", "detection", "cli", "defensive"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Security",
+]
+
+[project.urls]
+Homepage = "https://github.com/Gmotas/security-tooling"
+Repository = "https://github.com/Gmotas/security-tooling"
+
+[project.scripts]
+log-analyzer = "log_analyzer:main"
+
+[tool.setuptools]
+py-modules = ["log_analyzer"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["analyzer*"]

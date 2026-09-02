@@ -1,0 +1,39 @@
+# Sample synthetic log for the Log Analyzer.
+# Includes normal traffic plus several deliberately suspicious lines so the
+# tool has something to detect. This data is generated for demonstration only.
+
+# --- Normal traffic -------------------------------------------------------
+127.0.0.1 - frank [10/Oct/2024:13:55:36 -0700] "GET /index.html HTTP/1.1" 200 2326
+127.0.0.1 - frank [10/Oct/2024:13:55:37 -0700] "GET /styles.css HTTP/1.1" 200 4102
+10.0.0.15 - - [10/Oct/2024:13:55:38 -0700] "GET /api/health HTTP/1.1" 200 42
+10.0.0.15 - - [10/Oct/2024:13:55:39 -0700] "GET /api/health HTTP/1.1" 200 42
+192.168.1.50 - alice [10/Oct/2024:13:55:40 -0700] "POST /api/login HTTP/1.1" 200 128
+
+# --- Failed logins / brute force ------------------------------------------
+Jan  2 13:55:36 host sshd[2110]: Failed password for invalid user admin from 203.0.113.7 port 51024 ssh2
+Jan  2 13:55:40 host sshd[2111]: Failed password for invalid user admin from 203.0.113.7 port 51025 ssh2
+Jan  2 13:55:45 host sshd[2113]: Failed password for invalid user root from 203.0.113.7 port 51026 ssh2
+Jan  2 13:55:50 host sshd[2114]: Failed password for invalid user admin from 203.0.113.7 port 51027 ssh2
+Jan  2 13:55:55 host sshd[2115]: Failed password for invalid user oracle from 203.0.113.7 port 51028 ssh2
+Jan  2 13:56:02 host sshd[2116]: Failed password for invalid user admin from 203.0.113.7 port 51029 ssh2
+
+# --- SQL injection probes -------------------------------------------------
+198.51.100.23 - - [10/Oct/2024:14:01:02 -0700] "GET /search?q=1%27%20OR%20%271%27%3D%271 HTTP/1.1" 500 89
+198.51.100.23 - - [10/Oct/2024:14:01:03 -0700] "GET /products?id=1%20UNION%20SELECT%20username,password%20FROM%20users HTTP/1.1" 500 189
+
+# --- Port scan / repeated root probes -------------------------------------
+10.10.10.10 - - [10/Oct/2024:14:05:01 -0700] "GET / HTTP/1.1" 200 120
+10.10.10.10 - - [10/Oct/2024:14:05:02 -0700] "GET /admin HTTP/1.1" 404 90
+10.10.10.10 - - [10/Oct/2024:14:05:03 -0700] "GET /login HTTP/1.1" 200 150
+10.10.10.10 - - [10/Oct/2024:14:05:04 -0700] "GET /api HTTP/1.1" 404 70
+10.10.10.10 - - [10/Oct/2024:14:05:05 -0700] "GET /wp-admin HTTP/1.1" 404 60
+
+# --- Known scanner user-agent ---------------------------------------------
+203.0.113.99 - - [10/Oct/2024:14:09:11 -0700] "GET / HTTP/1.1" 200 9000
+203.0.113.99 - - [10/Oct/2024:14:09:11 -0700] "GET / HTTP/1.1" 200 9000
+
+# --- Path traversal -------------------------------------------------------
+192.0.2.44 - - [10/Oct/2024:14:12:40 -0700] "GET /download?file=../../etc/passwd HTTP/1.1" 403 55
+
+# --- Blacklisted IP -------------------------------------------------------
+185.220.101.34 - - [10/Oct/2024:14:15:00 -0700] "GET /account HTTP/1.1" 200 500

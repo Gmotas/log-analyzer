@@ -1,0 +1,5 @@
+# The Log Analyzer core uses ONLY the Python standard library.
+# There are no runtime dependencies. Python 3.10+ is recommended.
+
+# Dev / test dependencies (optional):
+pytest>=7.0
