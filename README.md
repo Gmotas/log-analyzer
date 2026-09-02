@@ -156,11 +156,12 @@ A suíte cobre os analisadores e cada heurística de detecção com entrada sint
 
 ## Capturas de tela
 
-Veja a pasta `screenshots/`:
+Os mockups de terminal abaixo mostram o **Log Analyzer em ação** — reconhecimento de padrões e classificação por gravidade. (Arquivos em `screenshots/`.)
 
-| Relatório de console | Saída JSON |
+| **Relatório de console** | **Saída JSON** |
 | --- | --- |
-| ![report](screenshots/log_analyzer_console.svg) | ![json](screenshots/log_analyzer_json.svg) |
+| ![Relatório de console mostrando achados de injeção, força bruta e varredura de portas com gravidade](screenshots/log_analyzer_console.svg) | ![Saída JSON estruturada com by_severity, by_type e a lista de achados](screenshots/log_analyzer_json.svg) |
+| *Detecção de atividade suspeita em logs com severidade `critical / high / medium`.* | *Saída legível por máquina para integrar com outras ferramentas.* |
 
 ## Aviso / Uso ético
 
@@ -324,11 +325,12 @@ The suite covers the parsers and each detection heuristic with synthetic input �
 
 ## Screenshots
 
-See the `screenshots/` folder:
+The terminal mockups below show the **Log Analyzer in action** — pattern recognition and severity classification. (Files in `screenshots/`.)
 
-| Console report | JSON output |
+| **Console report** | **JSON output** |
 | --- | --- |
-| ![report](screenshots/log_analyzer_console.svg) | ![json](screenshots/log_analyzer_json.svg) |
+| ![Console report showing injection, brute-force and port-scan findings with severity](screenshots/log_analyzer_console.svg) | ![Structured JSON output with by_severity, by_type and the findings list](screenshots/log_analyzer_json.svg) |
+| *Detection of suspicious log activity with `critical / high / medium` severity.* | *Machine-readable output for integration with other tooling.* |
 
 ## Disclaimer / Ethical Use
 
